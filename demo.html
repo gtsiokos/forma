@@ -28,26 +28,12 @@
 		
 		var structure = {
 			method:'POST',
-			action:'#',
-			wrap:'<p class="input-wrapper">',
-			attrs : { "id":'my-form' },
+			action:'comment.php',
+			attrs : { "id":'comment-form' },
 			collections:[
-				{
-				fieldset:'Personal Information',
-				inputs: [
-							{ type:'text', for:'first-name', label:'First Name' },
-							{ type:'text', for:'last-name', label:'Last Name' },
-							{ type:'text', for:'email', label:'Email', required:true },
-							{
-					            "type":'select', "label":'Gender', "for":'gender',
-					            "attrs": {},
-					            "options": [
-					                {inner_value:'Male', value:'male'},
-					                {inner_value:'Female', value:'female'}
-					           ]
-				            }
-						]
-				},
+				{ type:'text', for:'first-name', label:'First Name' },
+				{ type:'text', for:'last-name', label:'Last Name' },
+				{ type:'text', for:'email', label:'Email', required:true },
 				{ type:'text', for:'subject', label:'Subject', required:true },
 				{ type:'textarea', for:'message', label:'Your message', required:true },
 				{ type:'submit', value:'Send' }
