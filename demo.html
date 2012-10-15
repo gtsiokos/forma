@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+    <head>
+	    <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=IE7">
+
+	    <title>Forma Demo</title>
+	    <meta name="description" content="A jquery plugin for automatic form generation using handlebars.">
+	    <meta name="author" content="George Tsiokos">
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+    <body>
+    
+    <header>
+        <h1>{Forma} a jquery plugin for automatic form generation</h1>
+    </header>
+    <div role="main" id="demo">
+    
+    </div>
+    <footer></footer>
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/handlebars-0.9.0.pre.5.js"></script>
+	<script type="text/javascript" src="js/jquery.forma.js"></script>
+	<script  type="text/javascript" charset="UTF-8">
+	$(function(){
+		
+		var structure = {
+			method:'POST',
+			action:'#',
+			wrap:'<p class="input-wrapper">',
+			attrs : { "id":'my-form' },
+			collections:[
+				{
+				fieldset:'Personal Information',
+				inputs: [
+							{ type:'text', for:'first-name', label:'First Name' },
+							{ type:'text', for:'last-name', label:'Last Name' },
+							{ type:'text', for:'email', label:'Email', required:true },
+							{
+					            "type":'select', "label":'Gender', "for":'gender',
+					            "attrs": {},
+					            "options": [
+					                {inner_value:'Male', value:'male'},
+					                {inner_value:'Female', value:'female'}
+					           ]
+				            }
+						]
+				},
+				{ type:'text', for:'subject', label:'Subject', required:true },
+				{ type:'textarea', for:'message', label:'Your message', required:true },
+				{ type:'submit', value:'Send' }
+			]
+		};
+		$('#demo').forma(structure);
+	
+	});
+	</script>
+	
+    </body>
+</html>
