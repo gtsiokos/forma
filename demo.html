@@ -7,13 +7,14 @@
 	    <title>Forma Demo</title>
 	    <meta name="description" content="A jquery plugin for automatic form generation using handlebars.">
 	    <meta name="author" content="George Tsiokos">
-        <link rel="stylesheet" href="css/style.css">
-
+	    
+	    <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
     
     <header>
-        <h1>{Forma} a jquery plugin for automatic form generation</h1>
+        <h1>FormaJS<span>a jquery plugin for dynamic form generation</span></h1>
     </header>
     <div role="main" id="demo">
     
@@ -28,15 +29,25 @@
 		
 		var structure = {
 			method:'POST',
-			action:'comment.php',
-			attrs : { "id":'comment-form' },
+			action:'signup.php',
+			wrap:'<p>',
+			attrs : { "id":'signup-form' },
 			collections:[
-				{ type:'text', for:'first-name', label:'First Name' },
-				{ type:'text', for:'last-name', label:'Last Name' },
+				{ type:'text', for:'first-name', label:'First Name', required:true },
+				{ type:'text', for:'last-name', label:'Last Name', required:true },
 				{ type:'text', for:'email', label:'Email', required:true },
-				{ type:'text', for:'subject', label:'Subject', required:true },
-				{ type:'textarea', for:'message', label:'Your message', required:true },
-				{ type:'submit', value:'Send' }
+				{ type:'select', for:'Profession', label:'Javascript Level', value:'',
+				  options:[
+				    { value:'Rookie' },
+				    { value:'Guru' },
+				    { value:'Ninja' },
+				    { value:'Kung-Fu Master' }
+				  ]
+				},
+				{ type:'textarea', for:'caveats', label:'Personal Caveats' },
+				{ type:'submit', value:'Signup', 
+				  attrs : { "id":'signup-button' }
+				}
 			]
 		};
 		$('#demo').forma(structure);

@@ -1,0 +1,48 @@
+body {
+    background: url('img/noisy_grid.png') repeat;
+}
+
+header, #demo {
+    position: relative; top: -1px;
+    margin: 0 33px 0 33px;
+}
+
+header h1       { color: #333; }
+header h1>span  {
+                margin: 0 0 0 14px;
+                font-size: 14px;
+                color: #999;
+                text-shadow: 1px 1px 1px #fff;
+                }
+
+#demo label     {
+                display:block; position: relative;
+                margin: 0 0 6px 0;
+                font-size: 13px;
+                color: #333;
+                text-shadow: 1px 1px 1px #fff;
+                }
+
+#demo label>em  {
+                position: absolute; top: 3px; left: -13px;
+                font-weight: bold;
+                font-size: 15px;
+                color: #CC0000;
+                }
+                
+#demo input[type='text'],
+#demo input[type='password'],
+
+#demo textarea {
+    padding: 5px; padding-left: 6px;
+    font-size: 14px;
+    color: #444;
+}
+                
+#demo input:focus,
+#demo textarea:focus { color: #111; }
+
+#demo input[type='submit'],
+#demo input[type='reset'] {
+    padding: 5px 7px 6px 7px;
+}
