@@ -17,7 +17,7 @@
     <div class="wrapper">
       <header>
         <h1 class="header">FormaJS</h1>
-        <p class="header">a jquery plugin for automatic form generation</p>
+        <p class="header">a jquery plugin for dynamic form generation</p>
 
         <ul>
           <li class="download"><a class="buttons" href="https://github.com/gtsiokos/forma/zipball/master">Download ZIP</a></li>
@@ -30,11 +30,11 @@
 
       </header>
       <section>
-        <h1>Introduction</h1>
+        <h2>Introduction</h2>
 
 <p>With FormaJS you can build forms client-side without worrying about anti-spam techniques.</p>
 
-<h1>Getting Started</h1>
+<h2>Getting started</h2>
 
 <p>Let's make a comment form structure and assign into a variable:</p>
 
@@ -83,25 +83,58 @@
 <span class="nt">&lt;/form&gt;</span>
 </pre></div>
 
-<h1>More Options</h1>
+<h2>Supported form elements</h2>
 
-<h3>Fieldsets are supported</h3>
+<h4>
+<code>&lt;input&gt;</code> types</h4>
 
-<div class="highlight"><pre><span class="nx">collections</span><span class="o">:</span><span class="p">[</span>
-  <span class="p">{</span>
-    <span class="nx">fieldset</span><span class="o">:</span><span class="s1">'Personal Information'</span><span class="p">,</span>
-    <span class="nx">inputs</span><span class="o">:</span> <span class="p">[</span>
-      <span class="p">{</span> <span class="nx">type</span><span class="o">:</span><span class="s1">'text'</span><span class="p">,</span> <span class="k">for</span><span class="o">:</span><span class="s1">'first-name'</span><span class="p">,</span> <span class="nx">label</span><span class="o">:</span><span class="s1">'First Name'</span> <span class="p">},</span>
-      <span class="p">{</span> <span class="nx">type</span><span class="o">:</span><span class="s1">'text'</span><span class="p">,</span> <span class="k">for</span><span class="o">:</span><span class="s1">'last-name'</span><span class="p">,</span> <span class="nx">label</span><span class="o">:</span><span class="s1">'Last Name'</span> <span class="p">},</span>
-      <span class="p">{</span> <span class="nx">type</span><span class="o">:</span><span class="s1">'text'</span><span class="p">,</span> <span class="k">for</span><span class="o">:</span><span class="s1">'email'</span><span class="p">,</span> <span class="nx">label</span><span class="o">:</span><span class="s1">'Email'</span> <span class="p">}</span>
-    <span class="p">]</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="nx">fieldset</span><span class="o">:</span><span class="s1">'Credit Card Information'</span><span class="p">,</span>
-    <span class="c1">// blahblah</span>
-  <span class="p">}</span>
-<span class="p">]</span>
+<ul>
+<li>text</li>
+<li>password</li>
+<li>hidden</li>
+<li>radio</li>
+<li>checkbox</li>
+<li>file</li>
+<li>reset</li>
+<li>submit</li>
+</ul><h4><code>&lt;select&gt;</code></h4>
+
+<div class="highlight"><pre><span class="p">{</span> <span class="nx">type</span><span class="o">:</span><span class="s1">'select'</span><span class="p">,</span> <span class="k">for</span><span class="o">:</span><span class="s1">'Profession'</span><span class="p">,</span> <span class="nx">label</span><span class="o">:</span><span class="s1">'Javascript Level'</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span><span class="s1">''</span><span class="p">,</span>
+  <span class="nx">options</span><span class="o">:</span><span class="p">[</span>
+    <span class="p">{</span> <span class="nx">value</span><span class="o">:</span><span class="s1">'Rookie'</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">value</span><span class="o">:</span><span class="s1">'Guru'</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">value</span><span class="o">:</span><span class="s1">'Ninja'</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">value</span><span class="o">:</span><span class="s1">'Kung-fu master'</span> <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
+
+<h4><code>&lt;fieldset&gt;</code></h4>
+
+<p>Fieldset name will be used as <code>&lt;legend&gt;</code>:</p>
+
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="nx">fieldset</span><span class="o">:</span><span class="s1">'Personal Information'</span><span class="p">,</span>
+  <span class="nx">inputs</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nx">type</span><span class="o">:</span><span class="s1">'text'</span><span class="p">,</span> <span class="k">for</span><span class="o">:</span><span class="s1">'first-name'</span><span class="p">,</span> <span class="nx">label</span><span class="o">:</span><span class="s1">'First Name'</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">type</span><span class="o">:</span><span class="s1">'text'</span><span class="p">,</span> <span class="k">for</span><span class="o">:</span><span class="s1">'last-name'</span><span class="p">,</span> <span class="nx">label</span><span class="o">:</span><span class="s1">'Last Name'</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">type</span><span class="o">:</span><span class="s1">'text'</span><span class="p">,</span> <span class="k">for</span><span class="o">:</span><span class="s1">'email'</span><span class="p">,</span> <span class="nx">label</span><span class="o">:</span><span class="s1">'Email'</span> <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">},</span>
+<span class="p">{</span>
+  <span class="nx">fieldset</span><span class="o">:</span><span class="s1">'Credit Card Information'</span><span class="p">,</span>
+  <span class="c1">// blahblah</span>
+<span class="p">}</span>
+</pre></div>
+
+<h4><code>&lt;textarea&gt;</code></h4>
+
+<div class="highlight"><pre><span class="p">{</span> <span class="nx">type</span><span class="o">:</span><span class="s1">'textarea'</span><span class="p">,</span> <span class="k">for</span><span class="o">:</span><span class="s1">'message'</span><span class="p">,</span> <span class="nx">label</span><span class="o">:</span><span class="s1">'Your message'</span> <span class="p">},</span>
+</pre></div>
+
+<h2>Dependencies</h2>
+
+<p>FormaJS uses <a href="https://github.com/wycats/handlebars.js/">Handlebars.js</a> to render your forms.</p>
       </section>
       <footer>
         <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
